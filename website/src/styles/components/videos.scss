@@ -1,0 +1,13 @@
+
+//TODO - evaluate further
+// This code should not be necessary but is required due to an issue with performance in chrome when using translate3d on elements containing videos.
+// Animation frame firing would be delayed for no discernable reason. Client code and subsequent redraws were very efficient and always took < 2ms.
+// Adding a true 3d transform seems to completely bypasses whatever inefficient thing Chrome was doing making animations smooth again.
+.video{
+    perspective-origin: center;
+    perspective: 10000px;
+    iframe{
+        transform-style: preserve-3d;
+        transform: rotate3d(0, 1, 0, 0.00001rad);
+    }
+}

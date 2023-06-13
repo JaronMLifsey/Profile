@@ -1,0 +1,31 @@
+
+.direction-nav{
+    margin-top: 3em;
+}
+
+
+.direction-nav > div{
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5em;
+    div:first-of-type, div:last-of-type{
+        flex: 1;
+    }
+    a{
+        text-shadow: 0 0.33em 0.25em rgba(90, 90, 90, 0.4);
+        @include on-hover{
+            // text-decoration: underline;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        &.disabled{
+            color: rgb(155, 155, 155);
+            font-weight: normal;
+            // text-decoration: none;
+            cursor: default;
+        }
+    }
+    div:last-of-type{
+        text-align: right;
+    }
+}

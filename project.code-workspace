@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.venvPath": "${workspaceFolder}\\..\\python_environments",
+		"cSpell.words": [
+			"Youtube",
+			"lerp",
+			"undraggable"
+		],
+	}
+}

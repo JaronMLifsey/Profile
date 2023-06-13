@@ -1,0 +1,51 @@
+<p class="page-intro">
+  Editor for a height map terrain - a 2D array of vertices with editable heights
+</p>
+<div class="side-by-side-layout">
+  <div class="section sparse">
+    <H2 class="section-title">Vertex Editing</H2>
+    <p>
+      Vertex editing supports raising, lowering, flattening, or smoothing as well as undoing and redoing edits.
+      All editing types use an outer radius, inner radius, and a 'scale'.
+      Editing is performed at 100% of the scale within the inner radius and uses a cubic interpolation to zero at the outer radius.
+    </p>
+  </div>
+  
+  <div class="section full">
+      <div class="media">
+        <youtube-video video-id="FrxJ2jQrffc" aspect-ratio="1.7778"></youtube-video>
+      </div>
+  </div>
+
+  <div class="section sparse">
+    <H2 class="section-title">Adjustable Detail</H2>
+    <p>
+      The terrain was created to increase geometric detail around areas with sharper height gradients.
+      This was done by subdividing any quads that had internal angles that were too sharp for how large they were.
+      Looking back, this was a premature optimization, but the end result was still pretty neat.
+    </p>
+  </div>
+
+  <div class="section full">
+      <div class="media">
+        <youtube-video video-id="XeP28VKqhjo" aspect-ratio="1.7778"></youtube-video>
+      </div>
+  </div>
+
+  <div class="section sparse">
+    <H2 class="section-title">Geometry Stitching</H2>
+    <p>
+      Having subdivided quads without proper stitching for the triangles introduced a problem however.
+      Floating point errors would cause some pixels along the seams to not be considered part of either quad and so wouldn't render.
+      This was solved by shifting all vertices of subdivided quads neighboring larger quads slightly towards the larger ones creating a bit of overlap.
+    </p>
+  </div>
+  
+  <div class="section full">
+    <div class="media">
+      <expandable-img src="static/media/projects/game/world_editor/terrain_editor/stitching.jpg" alt="Example of vertex stitching.">
+    </div>
+  </div>
+</div>
+
+<div class="direction-nav" left="Gameplay" leftPageRef="/projects/game/gameplay/mana_system" right="Texturing" rightPageRef="/projects/game/world_editor/texture_editor"></div>

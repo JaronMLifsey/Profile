@@ -1,0 +1,93 @@
+<div class="stacked-layout">
+    <h1 class="section-title">Projects - This Website</h1>
+    <div class="section">
+        <p>
+            This website was created to familiarize myself with front-end development and as a portfolio.
+            All code was written from scratch apart from the following:
+            <ul>
+                <li><a href="https://kingsora.github.io/OverlayScrollbars/#!overview">OverlayScrollbars</a> for the custom scroll bars</li>
+                <li><a href="https://loading.io/css/">loading symbols</a> for the symbol that displays as pages load</li>
+
+            </ul>
+        </p>
+        <p>
+            This site was written in Type Script and SCSS and uses Webpack to build.
+            It's a single page site with a tree like structure where child pages are dynamically loaded when navigated to.
+            Switching which child page displays is done through an animations chosen depending the parent node's level.
+        </p>
+    </div>
+	<div class="section">
+        <div class="gallery two-wide small">
+            <div class="item media">
+                <expandable-img src="static/media/projects/this_website/rotate_animation.jpg" alt="Award plaque"></expandable-img>
+                <p class="captain">
+                    A top level page swapping using a rotating animation.
+                </p>
+            </div>
+            <div class="item media">
+                <expandable-img src="static/media/projects/this_website/slide_animation.jpg" alt="Award plaque"></expandable-img>
+                <p class="captain">
+                    A child page swapping using a slide animation.
+                </p>
+            </div>
+        </div>
+	</div>
+
+
+    <div class="section">
+        <p>
+            Carousels are used to navigate between child pages.
+            They can be images or text and can be clicked or dragged.
+            When an item is selected, it's corresponding page would be loaded (though these don't have any pages associated with them).
+        </p>
+    </div>
+
+    <div class="carousel" item-type="text" invert-y>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <h1>Item 1</h1>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <h1>Item 2</h1>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <h1>Item 3</h1>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <h1>Item 4</h1>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <h1>Item 5</h1>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <h1>Item 6</h1>
+        </div>
+    </div>
+    <div class="carousel" item-type="image">
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <img src="static/media/projects/this_website/image1.jpg">
+            <h2 class="caption small-caps">Image 1</h2>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <img src="static/media/projects/this_website/image2.jpg">
+            <h2 class="caption small-caps">Image 2</h2>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <img src="static/media/projects/this_website/image3.jpg">
+            <h2 class="caption small-caps">Image 3</h2>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <img src="static/media/projects/this_website/image1.jpg">
+            <h2 class="caption small-caps">Image 4</h2>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <img src="static/media/projects/this_website/image2.jpg">
+            <h2 class="caption small-caps">Image 5</h2>
+        </div>
+        <div class="carousel-item" pageRef="/projects/this_website">
+            <img src="static/media/projects/this_website/image3.jpg">
+            <h2 class="caption small-caps">Image 6</h2>
+        </div>
+    </div>
+</div>
+
+<div class="direction-nav" left="Game" leftPageRef="/projects/game/level_editor/tower_editor" right="Degree" rightPageRef="/education/college"></div>

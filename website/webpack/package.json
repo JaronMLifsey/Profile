@@ -1,0 +1,27 @@
+{
+  "name": "packaging",
+  "version": "1.0.0",
+  "description": "bundling resources",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-watch": "sass ..\\src\\styles\\root.scss ..\\dist\\static\\bundle.css --embed-sources --source-map --watch",
+    "sass": "sass ..\\src\\styles\\root.scss ..\\dist\\static\\bundle.css --embed-sources --source-map"
+  },
+  "author": "Jaron Lifsey",
+  "license": "",
+  "dependencies": {
+    "css-loader": "^5.0.1",
+    "mini-css-extract-plugin": "^1.3.1",
+    "postcss-loader": "^4.0.4",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
+    "ts-loader": "^8.0.11",
+    "typescript": "^4.0.5",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "devDependencies": {
+    "webpack-merge": "^4.2.2"
+  }
+}

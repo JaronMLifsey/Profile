@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Color Game</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="title_banner" class="default-title-banner">
+    <div class="content">
+      <h2>The Great</h2>
+      <h1 id="target_color_text"></h1>
+      <h2>Guessing Game</h2>
+    </div>
+  </div>
+  
+  <div id="ui_banner">
+    <div class="content">
+      <button id="new_colors_btn">New Colors</button>
+      <span id="try_again"></span>
+      <div class="grouping">
+        <button id="easy_btn">Easy</button>
+        <button id="hard_btn" class="selected">Hard</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="content guess-panel-container">
+    <div class="guess-panel easy"></div>
+    <div class="guess-panel easy"></div>
+    <div class="guess-panel easy"></div>      
+    <div class="guess-panel hard"></div>
+    <div class="guess-panel hard"></div>
+    <div class="guess-panel hard"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

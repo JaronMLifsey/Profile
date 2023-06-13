@@ -1,0 +1,33 @@
+<div class="stacked-layout">
+	<p class="page-intro">
+		The Grass Editor was meant to allow for quickly placing many pieces of configurable small foliage on the ground.
+	</p>
+	<div class="section">
+		<h2 class="section-title">Grass Editing</h2>
+        <p>
+            This editor allows for painting grass on the terrain.
+            This was achieved by creating a grid where each square would have several instances of grass within it.
+			The instanced would be layed out within a smaller sub-grid, but randomly placed within these child squares.
+            The order which instances would appear at grater density levels (from "painting") was also random.
+			This allowed for consistent results when paining, but prevented a grid-like appearance.
+            Grass rendering was optimized by only rendering quadrants in view.
+        </p>
+		<p>
+            The grass also responds to wind which was implemented as a 2D texture stretched over the map created with multiple sign waves of varying amplitude, frequency, and direction.
+		</p>
+		<p>
+            Allowing for a variety of foliage models was intended, but never implemented.
+            The editor, as I left it, allows for selecting only one model per map.
+        </p>
+	</div>
+	<div class="section">
+		<div class="media">
+			<youtube-video video-id="4QShdj7I2nA" aspect-ratio="1.7778"></youtube-video>
+			<p class="captain">
+				Adding grass to a map and applying wind.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="direction-nav" left="Texturing" leftPageRef="/projects/game/world_editor/texture_editor" right="Water Editing" rightPageRef="/projects/game/world_editor/water_editor"></div>

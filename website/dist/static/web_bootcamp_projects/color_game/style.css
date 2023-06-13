@@ -1,0 +1,92 @@
+.hidden {
+  visibility: hidden;
+}
+.content {
+  max-width: 80%;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: rgb(32, 32, 32);
+}
+
+
+#title_banner{
+  color: white;
+  height: 100%;
+  overflow: hidden;
+}
+#title_banner h1,h2{
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: .2em;
+}
+#title_banner h1{
+  font-size: 4em;
+}
+#title_banner h2{
+  font-size: 2em;
+}
+.default-title-banner {
+  background-color: steelblue;
+  transition: 500ms;
+}
+
+
+#ui_banner {
+  background-color: white;
+  height: 1.5em;
+}
+#ui_banner .content{
+  display: flex;
+  justify-content: space-between;
+}
+#ui_banner .selected {
+  background-color: steelblue;
+  color: white;
+}
+#ui_banner button{
+  background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+  outline: inherit;
+  color: steelblue;
+  font-weight: 700;
+  text-transform: uppercase;
+  height: 1.5em;
+  margin: 0;
+  padding: 0 0.5em;
+  float: left;
+  letter-spacing: 0.05em;
+  transition: all 250ms;
+  --webkit-transition: all 250ms;
+  --moz-transition: all 250ms;
+}
+#ui_banner button:hover{
+  background-color: rgb(61, 116, 161);
+  color: white;
+}
+
+
+.guess-panel-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.guess-panel {
+  width: 30%;
+  padding: 15% 0;
+  margin-top: 5%;
+  border-radius: 15%;
+  transition: 250ms;
+  --webkit-transition: 250ms;
+  --moz-transition: 250ms;
+}

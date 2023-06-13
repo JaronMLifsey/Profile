@@ -1,0 +1,214 @@
+$background: rgb(240, 245, 250);
+$legendShadow: rgba(170,180,180,.5);
+$tabBackgroundHoverColor: rgb(255, 255, 255);
+$tabBorderColor: rgb(230, 230, 230);
+$selectedColor: rgba(50, 50, 75, 0.33);
+
+$animationTime: 200ms;
+
+@include md-or-less{
+    .legend-collapsed{
+        transform: translate(calc(-100% - 9px), 0);
+    }
+}
+.legend{
+    z-index: $legendZIndex;
+    font-size: 0.95rem;
+    /*Breaks on mobile browsers since vh is too large when the address bar shows making it so you can't
+    scroll to bottom. Fixed using javascript in Legend.ts.
+    height: 100vh;*/
+    color: rgb(50, 50, 50);
+    overflow-y: auto;
+    direction: rtl;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    transition: transform 500ms ease-in-out 0ms;
+    background-color: $background;
+    box-shadow: 4px 2px 5px 0px $legendShadow;
+
+   @include md-or-less{
+        position: fixed;
+        left: 0;
+    }
+
+    > *{
+        direction: ltr;
+    }
+
+    .content{
+        padding: 1em 1em 1em 1em;
+        overflow: auto;
+    }
+
+
+    hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0));
+        margin: 0.1em auto 0.5em auto;
+    }
+    h1{
+        font-size: 1em;
+        color: var(--font-light-color);
+        letter-spacing: 0.1em;
+        text-align: center;
+        margin: 0 auto 1em auto;
+        font-weight: 400;
+        display: table;
+    }
+    h2{
+        font-weight: 400;
+        font-size: 1.33em;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        display: block;
+        margin: 1.3em 0 0 0;
+    }
+    h3{
+        font-size: 1.1em;
+        letter-spacing: 0.05em;
+        display: block;
+        margin: 0;
+        font-weight: 500;
+        text-decoration: underline;
+        line-height: 1.33rem;
+    }
+    p, p a {
+        margin: 0;
+        line-height: 1.33rem;
+        color: var(--font-light-color);
+    }
+
+    .legend-tab-in, .legend-tab-out{
+        @include lg-or-more{
+            display: none !important;
+        }
+    }
+
+    .legend-tab-in{
+        font-size: 1.5em;
+        height: 100%;
+        min-width: 1em;
+        border-left: 1px solid $tabBorderColor; 
+        color: $colorGrayedOut;
+        float: right;
+    
+        user-select: none;
+    
+        top: 0;
+        position: sticky;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media (pointer: fine) {
+            &:hover{
+                cursor: pointer;
+                background-color: $tabBackgroundHoverColor;
+            }
+        }
+    }
+    
+    .page-link-base{
+        box-sizing: border-box;
+        position: relative;
+        /* Make unelectable */
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .level0{
+        @extend .page-link-base;
+
+        // &.selected::before{
+        //     @extend .center-y-absolute;
+        //     content: " ";
+        //     transition: all $animationTime ease-in-out 0ms;
+        //     height: 0.5px;
+        //     width: 3em;
+        //     left: -3.5em;
+        //     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0));
+        // }
+        // &.selected::after{
+        //     @extend .center-y-absolute;
+        //     content: " ";
+        //     transition: all $animationTime ease-in-out 0ms;
+        //     height: 0.5px;
+        //     width: 3em;
+        //     right: -3.5em;
+        //     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0));
+        // }
+        
+        @media (pointer: fine) {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .level1{
+        @extend .page-link-base;
+        margin-top: 0.5em;
+        padding: .25em 0.25em 0.25em 1em;
+        transition: transform $animationTime ease-in-out 0ms;
+
+        &::before{
+            @extend .center-y-absolute;
+            background-color: $selectedColor;
+            content: " ";
+            transition: height $animationTime ease-in-out 0ms;
+            height: 0;
+            left: 0;
+            width: 0.3em;
+        }
+        &.selected::before{
+            height: 100%;
+        }
+        @media (pointer: fine) {
+            &:hover {
+                cursor: pointer;
+                transform: translateX(1em);
+                transition: all 100ms ease-in-out 0ms;
+                /*background-image: linear-gradient(to right, $background, $selectedColor 99%, $background);*/
+            }
+        }
+    }
+
+    // Page Links
+    .sub-page-links{
+        padding-left: 1em;
+    }
+    .level2{
+        @extend .page-link-base;
+        line-height: 1.5em;
+        display: block;
+        text-decoration: underline;
+        padding-left: 1em;
+        
+        @media (pointer: fine) {
+            &:hover{
+                cursor: pointer;
+                font-weight: bold;
+            }
+        }
+
+        &::before{
+            @extend .center-y-absolute;
+            content: " ";
+            transition: height $animationTime ease-in-out 0ms;
+            height: 0;
+            width: 0.5em;
+            border-radius: 50%;
+            left: 0;
+            background-color: $selectedColor;
+        }
+        &.selected::before{
+            height: 0.5em;
+        }
+    }
+}

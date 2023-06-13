@@ -1,0 +1,47 @@
+<div class="stacked-layout">
+	<p class="page-intro">
+		Magic 'particles' were the primary game resource
+	</p>
+	<div class="section">
+		<h2 class="section-title">The Mechanic</h2>
+        <p>
+            Magic particles were spread throughout the map and would be pulled towards towers and consumed to power their attacks.
+            These particles were a limited resource but would be replenished slowly at a rate proportional to how magic deficient the map was.
+            This created a mechanic whereby players would have to strategize carefully about tower placement to not starve other towers or overly deplete particular areas.
+        </p>
+	</div>
+    <div class="section">
+		<div class="media">
+			<expandable-img src="static/media/projects/game/gameplay/mana_system/example.jpg" alt="Example of the placement editor."></expandable-img>
+			<p class="captain">
+				Towers sucking up mana. The state of their mana pool was represented by their gem's brightness.
+			</p>
+		</div>
+	</div>
+	<div class="section">
+		<h2 class="section-title">Implementation</h2>
+        <p>
+            Towers applied a gravity to the mana particles whenever their mana pool was not full.
+            Gravity was implemented as a sparse <a href="https://en.wikipedia.org/wiki/Octree#:~:text=An%20octree%20is%20a%20tree,three%2Ddimensional%20analog%20of%20quadtrees.">octree</a> where nodes further from gravity sources would be subdivided less.
+            This allowed for the gravity map to only be updated when a tower turned on or off its gravity and only for a small fraction of the total octants.
+        </p>
+        <p>
+            All particles (more than 16,000 of them) would update their velocity and position every frame based on a gravity sample obtained by traversing the full height of the octree at its location.
+            Those moving quickly and near by a gravity field would be updated up to 15 times a frame to keep the simulation accurate at the extremes.
+        </p>
+        <p>
+            This method allowed for a fairly accurate simulation containing many gravity sources and many particles while remaining very computationally cheap.
+            The entire game only had a 2-3% CPU utilization running at 100FPS (on a Ryzen 3700x).
+        </p>
+	</div>
+	<div class="section">
+		<div class="media">
+			<youtube-video video-id="DOvT0Jwu6Gw" aspect-ratio="1.7778"></youtube-video>
+			<p class="captain">
+				Example of towers drawing mana towards them.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="direction-nav" left="Gameplay Overview" leftPageRef="/projects/game/gameplay/overview" right="World Editor" rightPageRef="/projects/game/world_editor/terrain_editor"></div>

@@ -1,0 +1,110 @@
+.center-y-absolute{
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+.center-x-absolute{
+    position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+.center-x{
+	margin-left: auto;
+	margin-right: auto;
+}
+.unselectable{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.undraggable{
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+	user-drag: none;
+}
+
+
+@mixin using-mouse {
+	@media (pointer: fine) {
+		@content;
+	}
+}
+
+@mixin on-hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin on-ie {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@content;
+	}
+}
+
+@mixin xsm {
+	@media screen and (max-width: $xs-end){
+		@content;
+	}
+}
+
+@mixin sm-or-less {
+	@media screen and (max-width: $sm-end){
+		@content;
+	}
+}
+@mixin sm-only {
+	@media screen and (min-width: $sm-start) and (max-width: $sm-end){
+		@content;
+	}
+}
+@mixin sm-or-more {
+	@media screen and (min-width: $sm-start){
+		@content;
+	}
+}
+
+@mixin md-or-less {
+	@media screen and (max-width: $md-end){
+		@content;
+	}
+}
+@mixin md-only {
+	@media screen and (min-width: $md-start) and (max-width: $md-end){
+		@content;
+	}
+}
+@mixin md-or-more {
+	@media screen and (min-width: $md-start){
+		@content;
+	}
+}
+
+@mixin lg-or-less {
+	@media screen and (max-width: $lg-end){
+		@content;
+	}
+}
+@mixin lg-only {
+	@media screen and (min-width: $lg-start) and (max-width: $lg-end){
+		@content;
+	}
+}
+@mixin lg-or-more {
+	@media screen and (min-width: $lg-start){
+		@content;
+	}
+}
+
+@mixin xlg-or-more {
+	@media screen and (min-width: $xlg-start){
+		@content;
+	}
+}

@@ -1,0 +1,10 @@
+@media screen and (max-width: $sm-end){
+    .shift-left-lt-md{
+        transform: translate(-100%, 0) !important;
+    }
+}
+@media screen and (min-width: $md-start){
+    .hidden-gt-sm{
+        display: none !important;
+    }
+}

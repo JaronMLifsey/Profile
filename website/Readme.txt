@@ -1,0 +1,1 @@
+Node and NPM must be installed before the site can be built or the "run_after_cloning_repo.bat" file run

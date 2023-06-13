@@ -1,0 +1,11 @@
+$xs-start: 0px;
+$sm-start: 440px;
+$md-start: 768px;
+$lg-start: 1200px;
+$xlg-start: 1921px;
+
+$tiny-end: $xs-start - 1;
+$xs-end: $sm-start - 1;
+$sm-end: $md-start - 1;
+$md-end: $lg-start - 1;
+$lg-end: $xlg-start - 1;

@@ -1,0 +1,33 @@
+<div class="stacked-layout">
+	<p class="page-intro">
+		This editor allowed configuring enemy spawning
+	</p>
+	<div class="section">
+		<h2 class="section-title">Wave Editing</h2>
+        <p>
+			This editor allowed for the creation of multiple paths which enemies would take and for configuring which enemies would spawn on which path and at what time.
+            The editor still needed some work before being really usable.
+            For instance, there was no concept of waves yet which would make it a bit impractical to use to create longer missions.
+        </p>
+        <p>
+			The editor's function was the creation of points which defined a path and moving those points in 3D space.
+            They could be dragged freely and optionally snapped to the terrain height.
+        </p>
+        <p>
+			The wave editor portion was a timeline which was split into a grid where rows designate different paths and each column represents a second.
+            Each square could have any of the available enemy types assigned to it and any rectangular section could be selected, cut, copy, and pasted.
+        </p>
+	</div>
+	<div class="section">
+		<div class="media">
+			<expandable-img src="static/media/projects/game/level_editor/wave_editor/example.jpg" alt="Example of the placement editor."></expandable-img>
+			<p class="captain">
+				The wave editor UI.
+                The highlighted rectangle in the timeline represent enemy spawns and can be copied and pasted elsewhere.
+                The path highlighted on the timeline is revealed in the world.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="direction-nav" left="Object Editing" leftPageRef="/projects/game/world_editor/object_editor" right="Placement Editing" rightPageRef="/projects/game/level_editor/tower_editor"></div>

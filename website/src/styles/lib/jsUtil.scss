@@ -1,0 +1,47 @@
+//These classes are used by javascript
+
+.hidden{
+	display: none !important;
+}
+.above-all{
+	z-index: 2147483647 !important;
+}
+.no-transition{
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+}
+
+//Used in PageManager.ts
+.page-msg-error{
+    background-color: #ffbfbf;
+    border: 2px solid red;
+    width: 66%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4em;
+	border-radius: 0.5em;
+	@include md-or-less{
+		width: auto;
+	}
+	
+	h1, h2, h3, h4, h5, h6{
+		text-align: center;
+		font-size: 2.5em;
+		font-weight: 500;
+		line-height: 1.3em;
+
+		@include md-or-less{
+			font-size: 1.5em;
+		}
+	}
+	p{
+		font-size: 1.5em;
+		margin-left: 1em;
+		margin-right: 1em;
+		@include md-or-less{
+			font-size: 1em;
+		}
+	}
+}

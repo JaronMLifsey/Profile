@@ -1,0 +1,37 @@
+<div class="stacked-layout">
+	<p class="page-intro">
+		I wanted water to look like it was flowing, even around objects that may be in it's path.
+	</p>
+	<div class="section">
+		<h2 class="section-title">Water Editing</h2>
+        <p>
+			I was never really happy with the water.
+			The advanced rendering techniques were over my head and would take a long time to implement.
+			Eventually I got something I was reasonably happy with.
+			It was simple, only supporting cube map reflections and no refractions, but it still looked descent for the top-down angle the game was planned to have.
+        </p>
+        <p>
+            The water editor consisted of a vertex editor, flow editor, ripple editor, and foam editor.
+            The vertex editor allowed creating arbitrary meshes by extruding edges of the two most recently selected vertices, merging two vertices, or deleting a selected vertex.
+            The flow editor allowed for painting flow direction and speed.
+            The ripple editor allowed for painting the ripple intensity.
+            The foam editor allowed for painting the transparency of a foam texture.
+            All painting was done to map sized 4-channel texture (2 for flow direction, 1 for ripple intensity, and 1 for foam transparency), which was sampled in the shader.
+        </p>
+        <p>
+            The appearance of ripples was achieved by sampling from a texture created using multiple sign waves of varying amplitude, frequency, and direction.
+            A flowing effect was achieved by offsetting the sample point by the current time multiplied by the flow velocity at that point.
+            The normal generated from this sample was blended with what adjacent texels would have produced to create a smooth transition.
+        </p>
+	</div>
+	<div class="section">
+		<div class="media">
+			<youtube-video video-id="MIs6o2iT9TY" aspect-ratio="1.7778"></youtube-video>
+			<p class="captain">
+				Adding water to a map and paining ripples, flows, and foam.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="direction-nav" left="Grass Editing" leftPageRef="/projects/game/world_editor/grass_editor" right="Object Editing" rightPageRef="/projects/game/world_editor/object_editor"></div>

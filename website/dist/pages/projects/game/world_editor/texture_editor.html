@@ -1,0 +1,70 @@
+<div class="stacked-layout">
+	<p class="page-intro">
+		I had two goals for texturing: steep inclines should not look stretched and the number of textures allowed per map should not be restrictive.
+	</p>
+	<div class="section">
+		<h2 class="section-title">tri-planar texturing</h2>
+		<p>
+			I struggled with the first goal but eventually found inspiration from
+			<a href="https://developer.nvidia.com/gpugems/gpugems3/part-i-geometry/chapter-1-generating-complex-procedural-terrains-using-gpu">this site</a> to use tri-planar projection texturing.
+			This technique samples textures from the the x, y, and z planes separately based on the surface normal and blends the samples near the 45 degree angles to remove sharp transitions.
+			There's a bit of overhead due to having to sample each texture three times instead of one, but it's relatively minor and the results were quite good.
+		</p>
+	</div>
+	<div class="section">
+		<div class="media">
+			<expandable-img src="static/media/projects/game/world_editor/texture_editor/example.jpg" alt="Example of texturing on steep surfaces."></expandable-img>
+			<p class="captain">
+				Multiple textures placed half on a vertical wall and half on flat ground.
+			</p>
+		</div>
+	</div>
+	<div class="section">
+		<h2 class="section-title">254 textures maximum</h2>
+		<p>
+			Goal two was achieved by using a texture array for diffuse textures.
+			Two other texture arrays were used, one for their alpha values (4-component 8-bit unsigned normalized) and the other to select which textures would appear at any location (4-component 8-bit unsigned int).
+			This allowed for 4 textures at any one point and up to 254 textures in total (255 was reserved to indicate that no diffuse texture should be sampled).
+		</p>
+			
+		<p>
+			Deciding the four textures to choose was done by considering the square region formed from the corners of each grouping of four adjacent sampling texels.
+			The alpha of all textures used by those four sampling texels were summed and the textures with lowest average alpha removed.
+			The four alpha values for the remaining textures were then scaled to equal one.
+			This removed the possibility of harsh lines appearing due to adjacent texels disagreeing on which set of textures should be sampled from.
+		</p>
+
+		<p>
+			The asset manager was very rudimentary.
+			It would open a file explorer where all terrain textures were located and allow for selecting which ones would be available for the current terrain.
+			Those would then populate a drop-down list.
+			The video below shows shows the final results of the texture Editing.
+		</p>
+	</div>
+	<div class="section">
+		<div class="media">
+			<youtube-video video-id="0tFf7mk8bB8" aspect-ratio="1.7778"></youtube-video>
+			<p class="captain">
+				Example of Tri-Planar texturing and multiple overlapping textures.
+			</p>
+		</div>
+	</div>
+	<div class="section">
+		<h2 class="section-title">Decals</h2>
+		<p>
+			Terrain decals were also implemented, though I never created any assets for it besides a circle used in the editors.
+			As the renderer was deferred, decals were implemented by drawing a box to the screen that would contain the full possible size for the decal.
+			The world position of each terrain pixel was calculated from the depth buffer and screen coordinate which was then used to calculate a texture sample position.
+		</p>
+	</div>
+	<div class="section">
+		<div class="media">
+			<expandable-img src="static/media/projects/game/world_editor/texture_editor/decal.jpg" alt="Example of decal rendering."></expandable-img>
+			<p class="captain">
+				Editing circle decal on a bumpy terrain surface.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="direction-nav" left="Vertex Editing" leftPageRef="/projects/game/world_editor/terrain_editor" right="Grass Editing" rightPageRef="/projects/game/world_editor/grass_editor"></div>

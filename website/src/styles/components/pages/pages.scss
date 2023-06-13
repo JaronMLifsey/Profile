@@ -1,0 +1,32 @@
+.site-pages-container {
+    margin-top: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
+    
+    @media screen and (max-width: $sm-end){
+        margin-top: 1.5em;
+        margin-left: 1.75em;
+        margin-right: 1em;
+    }
+    @media screen and (max-width: $xs-end){
+        margin-top: 1.1em;
+        margin-left: 1.35em;
+        margin-right: 0.5em;
+    }
+}
+
+.child-page-container{
+    position: relative;
+    overflow: hidden;
+}
+
+.page{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.site-body{
+    overflow-x: hidden;
+    position: relative;
+    flex-grow: 1;
+}

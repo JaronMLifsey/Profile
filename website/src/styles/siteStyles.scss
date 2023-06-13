@@ -1,0 +1,24 @@
+html{
+	overflow-x: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.site-wrapper {
+    padding: 0;
+    margin: 0 auto;
+    max-width: $lg-end;
+    min-height: 100%;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: row;
+}
+* {
+    outline: none;
+    -webkit-tap-highlight-color:transparent;
+    -moz-tap-highlight-color:transparent;
+    -o-tap-highlight-color:transparent;
+    tap-highlight-color:transparent;
+}
